@@ -343,3 +343,91 @@ main{
         justify-content: start;
     }
 }
+
+
+/* Notifications */
+.notification {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 1rem 2rem;
+    border-radius: 4px;
+    background: white;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    transform: translateY(100px);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.notification.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.notification.success {
+    background: #10b981;
+    color: white;
+}
+
+.notification.error {
+    background: #ef4444;
+    color: white;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.section {
+    animation: fadeIn 0.6s ease-out;
+}
+
+/* Add loading state for button */
+.submit-btn:disabled {
+    background-color: #93c5fd;
+    cursor: not-allowed;
+}
+
+/* Dark mode toggle */
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: var(--text-color);
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+    background: var(--light-bg);
+}
+
+/* Dark mode styles */
+[data-theme="dark"] {
+    --primary-color: #60a5fa;
+    --secondary-color: #e2e8f0;
+    --text-color: #e2e8f0;
+    --light-bg: #1e293b;
+    background-color: #0f172a;
+}
+
+[data-theme="dark"] .project-card,
+[data-theme="dark"] .contact-form {
+    background: #1e293b;
+}
+
+[data-theme="dark"] .theme-toggle {
+    color: white;
+}
