@@ -31,3 +31,11 @@ connectDB().then(() => {
         console.log(`Server running on port ${PORT}`);
     });
 });
+
+const cookieParser = require('cookie-parser');
+
+// Add cookie parser middleware
+app.use(cookieParser());
+
+// Add auth routes
+app.use('/api/auth', require('./routes/authRoutes'));
